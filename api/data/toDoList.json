@@ -1,0 +1,21 @@
+{
+    "toDoList": {
+      "data": [
+        {
+          "id": "5da9ea674234635bdff45c02",
+          "task": "Estudar",
+          "done": true
+        },
+        {
+            "id": "5da9ea674234635bdff45c02",
+            "task": "Trabalhar",
+            "done": false
+        },
+        {
+            "id": "5da9ea674234635bdff45c02",
+            "task": "Limpar a casa",
+            "done": true
+        }
+      ]
+    }
+  }
