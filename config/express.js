@@ -11,6 +11,7 @@ module.exports = () => {
   // MIDDLEWARES
   app.use(bodyParser.json());
 
+  //ENDPOINTS
   consign({cwd: 'api'})
     .then('data')
     .then('controllers')
