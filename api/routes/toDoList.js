@@ -6,5 +6,6 @@ module.exports = app => {
     .post(controller.saveTask);
   
   app.route('/api/v1/todolist/:taskId')
-      .delete(controller.removeTask);
+      .delete(controller.removeTask)
+      .put(controller.updateTask);
 }

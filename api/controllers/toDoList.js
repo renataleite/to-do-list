@@ -39,5 +39,34 @@ module.exports = app => {
       });
     }
   };
+  controller.updateTask = (req, res) => {
+    const {
+      taskId,
+    } = req.params;
+
+    const foundTaskIndex = toDoListMock.data.findIndex(task => task.id ===taskId);
+    
+    if (foundTaskIndex === -1) {
+      res.status(404).json({
+        message: 'Task não encontrada na base.',
+        sucess: false,
+        toDoList: toDoListMock,
+      });
+    } else {
+      const newTask = {
+        id: taskId,
+        task: req.body.task,
+        done: req.body.done,
+      };
+      
+      toDoListMock.data.splice(foundTaskIndex, 1, newTask);
+
+      res.status(200).json({
+        message: 'Task encontrada e atualizada com sucesso',
+        sucess: true,
+        toDoList: toDoListMock,
+      });
+    }
+  }   
   return controller;
 }
