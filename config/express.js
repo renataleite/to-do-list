@@ -16,6 +16,7 @@ module.exports = () => {
     res.setHeader('Access-Control-Allow-Credentials', true);
     return next();
   });
+  app.use(bodyParser.json());
 
   //ENDPOINTS
   consign({ cwd: 'api' })
