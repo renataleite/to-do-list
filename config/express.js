@@ -1,6 +1,6 @@
-const express    = require('express');
+const express = require('express');
 const bodyParser = require('body-parser');
-const config     = require('config');
+const config = require('config');
 const consign = require('consign');
 module.exports = () => {
   const app = express();
@@ -9,28 +9,16 @@ module.exports = () => {
   app.set('port', process.env.PORT || config.get('server.port'));
 
   // MIDDLEWARES
-  app.use(bodyParser.json());
-  app.use(function (req, res, next) {
-
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
-
-    // Request methods you wish to allow
+  app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://nostalgic-pike-cbefd5.netlify.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', true);
-
-    // Pass to next layer of middleware
-    next();
-});
+    return next();
+  });
 
   //ENDPOINTS
-  consign({cwd: 'api'})
+  consign({ cwd: 'api' })
     .then('data')
     .then('controllers')
     .then('routes')
