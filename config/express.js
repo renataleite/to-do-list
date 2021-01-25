@@ -10,7 +10,7 @@ module.exports = () => {
 
   // MIDDLEWARES
   app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://nostalgic-pike-cbefd5.netlify.app');
+    res.setHeader('Access-Control-Allow-Origin', 'https://to-do-list-renata.netlify.app/');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', true);
