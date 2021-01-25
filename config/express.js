@@ -1,6 +1,10 @@
 const express = require('express');
+/*body-parser é um middleware capaz de converter o body da requisição para vários formatos.
+Um desses formatos é o json.*/
 const bodyParser = require('body-parser');
+/*permite organizar a configuração da nossa aplicação e estender em qualquer arquivo.*/
 const config = require('config');
+/*consign detecta e importa as rotas, os controllers e os models na aplicação Express */
 const consign = require('consign');
 module.exports = () => {
   const app = express();
