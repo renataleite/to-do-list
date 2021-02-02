@@ -1,5 +1,5 @@
 module.exports = app => {
-  const controller = app.controllers.toDoList;
+  const controller = app.controllers.TaskController;
   
   app.route('/api/v1/todolist')
     .get(controller.listTask)

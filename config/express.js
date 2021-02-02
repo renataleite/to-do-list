@@ -6,6 +6,17 @@ const bodyParser = require('body-parser');
 const config = require('config');
 /*consign detecta e importa as rotas, os controllers e os models na aplicação Express */
 const consign = require('consign');
+const mongoose = require('mongoose');
+const TaskModel = require('../api/model/TaskModel');
+
+mongoose.connect('mongodb+srv://renataleitesg:101010@cluster0.c7lil.mongodb.net/Cluster0?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+  // we're connected!
+});
+
+
 module.exports = () => {
   const app = express();
 
@@ -15,6 +26,7 @@ module.exports = () => {
   // MIDDLEWARES
   app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://to-do-list-renata.netlify.app');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', true);
