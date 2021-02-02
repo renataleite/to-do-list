@@ -27,9 +27,9 @@ module.exports = () => {
   app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://to-do-list-renata.netlify.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,Authorization');
     res.setHeader('Access-Control-Allow-Credentials', true);
-    return next();
+    next();
   });
   app.use(bodyParser.json());
 
